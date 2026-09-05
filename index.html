@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eriky dos Santos Bezerra | Designer, Editor de Vídeo & Web</title>
+    <style>
+        :root {
+            --bg-color: #0b0b0d;
+            --card-bg: #141418;
+            --card-inner: #1c1c22;
+            --primary-red: #e50914;
+            --primary-red-hover: #ff1e27;
+            --text-color: #ffffff;
+            --text-muted: #a0a0ab;
+            --border-color: #26262e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(11, 11, 13, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--text-color);
+        }
+
+        .btn-header {
+            border: 1px solid var(--primary-red);
+            color: var(--text-color);
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-header:hover {
+            background-color: var(--primary-red);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: block;
+        }
+
+        /* Hero Text */
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Card Section */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .card-title span {
+            color: var(--primary-red);
+        }
+
+        /* Metrics / Stats Row */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            background-color: var(--card-inner);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .stat-item h3 {
+            color: var(--primary-red);
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* List Items */
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .features-list li::before {
+            content: "•";
+            color: var(--primary-red);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .features-list strong {
+            color: var(--text-color);
+        }
+
+        /* Action Buttons */
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            touch-action: manipulation;
+        }
+
+        .btn-secondary {
+            background-color: var(--card-inner);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #2a2a34;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--text-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-red-hover);
+        }
+
+        /* Game Controls & Container Styles */
+        .game-controls-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .mobile-tip {
+            display: none;
+            background-color: var(--card-inner);
+            border: 1px dashed var(--primary-red);
+            padding: 10px;
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        #gameContainer {
+            display: none;
+            width: 100%;
+            height: 550px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: #000;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        #gameContainer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Estilo para quando ativar Tela Cheia */
+        #gameContainer:fullscreen,
+        #gameContainer:-webkit-full-screen {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            border-radius: 0;
+            margin: 0;
+        }
+
+        /* Form Styles */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: var(--card-inner);
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            border-radius: 6px;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-red);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .status-msg {
+            display: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-success {
+            background-color: rgba(40, 167, 69, 0.15);
+            color: #28a745;
+            border: 1px solid #28a745;
+        }
+
+        .status-error {
+            background-color: rgba(229, 9, 20, 0.15);
+            color: #e50914;
+            border: 1px solid #e50914;
+        }
+
+        /* Responsive Mobile Adjustments */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .button-group, .game-controls-group {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            #gameContainer {
+                height: 380px;
+            }
+            .mobile-tip {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">ERIKY DOS SANTOS <span>BEZERRA</span></div>
+        <nav>
+            <a href="#sobre">Sobre Mim</a>
+            <a href="#ia-passo-a-passo">Criar Sites</a>
+            <a href="#Minecraft">Minecraft</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <a href="#contato" class="btn-header">Fale Comigo</a>
+    </header>
+
+    <div class="container">
+        <!-- Banner Principal -->
+        <section class="hero">
+            <h1>CRIAÇÃO DE CONTEÚDO & <span>ALTA PERFORMANCE</span></h1>
+            <p>Design de alto impacto, edição audiovisual profissional e desenvolvimento web moderno impulsionado por IA.</p>
+        </section>
+
+        <!-- Seção 1: Sobre Mim -->
+        <section class="card" id="sobre">
+            <h2 class="card-title">PERFIL <span>PROFISSIONAL</span></h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>3+ ANOS</h3>
+                    <p>DESIGN & EDIÇÃO DE VÍDEO</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1 ANO</h3>
+                    <p>CRIAÇÃO DE SITES</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>FOCO EM QUALIDADE</p>
+                </div>
+            </div>
+
+            <ul class="features-list">
+                <li><strong>Design & Edição Audiovisual:</strong> Mais de 3 anos desenvolvendo identidades visuais marcantes, edição de vídeos dinâmicos e materiais gráficos de alta performance.</li>
+                <li><strong>Desenvolvimento Web:</strong> Há 1 ano criando landing pages e sites focados em usabilidade, velocidade e apresentação profissional.</li>
+                <li><strong>Integração com IA:</strong> Aplicação de ferramentas de Inteligência Artificial para acelerar o processo criativo, geração de layouts e otimização de código.</li>
+            </ul>
+
+            <div class="button-group">
+                <a href="#contato" class="btn btn-secondary">VER PROJETOS</a>
+                <a href="#contato" class="btn btn-primary">SOLICITAR ORÇAMENTO</a>
+            </div>
+        </section>
+
+        <!-- Seção 2: Passo a Passo Criar Sites com IA -->
+        <section class="card" id="ia-passo-a-passo">
+            <h2 class="card-title">COMO CRIAR SITES COM <span>IA</span></h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>4 ETAPAS</h3>
+                    <p>PROCESSO SIMPLES</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10X</h3>
+                    <p>MAIS RÁPIDO</p>
+                </div>
+                <div class="stat-item">
+                    <h3>CÓDIGO</h3>
+                    <p>LIMPO E OTIMIZADO</p>
+                </div>
+            </div>
+
+            <ul class="features-list">
+                <li><strong>1. Planejamento de Estrutura:</strong> Defina o objetivo do site e utilize prompts para pedir à IA a estrutura ideal das seções (Hero, Sobre, Serviços, Contato).</li>
+                <li><strong>2. Definição do Design System:</strong> Solicite a criação de paletas de cores CSS modernas e tipografias baseadas na identidade visual desejada.</li>
+                <li><strong>3. Geração de Código HTML/CSS:</strong> Peça à IA para gerar o código HTML completo com CSS embutido e layout responsivo para celulares e computadores.</li>
+                <li><strong>4. Refinamento & Publicação:</strong> Faça ajustes manuais nos textos e publique em plataformas gratuitas como GitHub Pages, Vercel ou Netlify.</li>
+            </ul>
+
+            <div class="button-group">
+                <a href="#contato" class="btn btn-secondary">VER GUIA COMPLETO</a>
+                <a href="#contato" class="btn btn-primary">CRIAR MEU SITE</a>
+            </div>
+        </section>
+
+        <!-- Seção 3: Minecraft Web -->
+        <section class="card" id="minecraft">
+            <h2 class="card-title">Minecraft<span>WEB</span></h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>HTML5</h3>
+                    <p>RODA NO NAVEGADOR</p>
+                </div>
+                <div class="stat-item">
+                    <h3>WEBGL</h3>
+                    <p>ALTA PERFORMANCE</p>
+                </div>
+                <div class="stat-item">
+                    <h3>INSTANTÂNEO</h3>
+                    <p>SEM DOWNLOADS</p>
+                </div>
+            </div>
+
+            <!-- Dica para Celular -->
+            <div class="mobile-tip">
+                💡 <strong>Dica Mobile:</strong> Vire o celular na <strong>horizontal</strong> e clique em <strong>TELA CHEIA</strong> para ter os controles de toque na tela inteira.
+            </div>
+
+            <div class="game-controls-group">
+                <button id="btnToggleGame" class="btn btn-primary" style="flex: 1;">ABRIR JOGO</button>
+                <button id="btnFullscreen" class="btn btn-secondary" style="flex: 1; display: none;">TELA CHEIA 📱</button>
+            </div>
+
+            <!-- Container do Iframe do Minecraft-->
+            <div id="gameContainer">
+                <iframe id="mcIframe" src="" allow="autoplay; fullscreen; keyboard; pointer-lock" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Seção 4: Contato -->
+        <section class="card" id="contato">
+            <h2 class="card-title">ENTRE EM <span>CONTATO</span></h2>
+            
+            <form class="contact-form" id="formContato">
+                <input type="hidden" name="_subject" value="Novo contato do site!">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="Nome" placeholder="Seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="Email" placeholder="seuemail@exemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="Mensagem" placeholder="Mande sua mensagem ou número de contato aqui..." required></textarea>
+                </div>
+
+                <button type="submit" id="btnEnviar" class="btn btn-primary" style="width: 100%; margin-top: 10px;">ENVIAR MENSAGEM</button>
+                <div id="statusEnvio" class="status-msg"></div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Script de envio do formulário e controle do jogo -->
+    <script>
+        // Envio do formulário
+        const form = document.getElementById('formContato');
+        const statusEnvio = document.getElementById('statusEnvio');
+        const btnEnviar = document.getElementById('btnEnviar');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            btnEnviar.innerText = 'ENVIANDO...';
+            btnEnviar.disabled = true;
+            statusEnvio.style.display = 'none';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/erikydossantosbezerra765@gmail.com', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    statusEnvio.innerText = 'Mensagem enviada com sucesso!';
+                    statusEnvio.className = 'status-msg status-success';
+                    statusEnvio.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error('Erro no envio');
+                }
+            } catch (error) {
+                statusEnvio.innerText = 'Erro ao enviar. Tente novamente.';
+                statusEnvio.className = 'status-msg status-error';
+                statusEnvio.style.display = 'block';
+            } finally {
+                btnEnviar.innerText = 'ENVIAR MENSAGEM';
+                btnEnviar.disabled = false;
+            }
+        });
+
+        // Controle de Abrir / Fechar o Minecraft e Tela Cheia
+        const btnToggleGame = document.getElementById('btnToggleGame');
+        const btnFullscreen = document.getElementById('btnFullscreen');
+        const gameContainer = document.getElementById('gameContainer');
+        const mcIframe = document.getElementById('mcIframe');
+
+        btnToggleGame.addEventListener('click', function() {
+            if (gameContainer.style.display === 'block') {
+                gameContainer.style.display = 'none';
+                btnFullscreen.style.display = 'none';
+                mcIframe.src = ''; // Limpa para parar o áudio do jogo
+                btnToggleGame.innerText = 'ABRIR JOGO';
+                btnToggleGame.className = 'btn btn-primary';
+            } else {
+                mcIframe.src = 'minecraft.html'; // Carrega o arquivo do jogo
+                gameContainer.style.display = 'block';
+                btnFullscreen.style.display = 'block';
+                btnToggleGame.innerText = 'FECHAR JOGO';
+                btnToggleGame.className = 'btn btn-secondary';
+            }
+        });
+
+        // Evento para ativar Tela Cheia no Celular ou PC
+        btnFullscreen.addEventListener('click', function() {
+            if (gameContainer.requestFullscreen) {
+                gameContainer.requestFullscreen();
+            } else if (gameContainer.webkitRequestFullscreen) { /* Safari / iOS */
+                gameContainer.webkitRequestFullscreen();
+            } else if (gameContainer.msRequestFullscreen) { /* IE/Edge antigo */
+                gameContainer.msRequestFullscreen();
+            }
+        });
+    </script>
+
+</body>
+</html>
+/body>
+</html>
+tml>
+</body>
+</html>
+/body>
+</html>
+tml>
